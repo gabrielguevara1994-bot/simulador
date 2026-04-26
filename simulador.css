@@ -1,70 +1,172 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
+/* Importación de fuentes elegantes */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+body {
+    font-family: 'Lato', sans-serif;
+    /* Fondo con textura de oficina premium o madera oscura */
+    background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
+                url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=2070');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
 .container {
-    width: 400px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: #ffffff; /* Fondo blanco marfil para contraste de seriedad */
+    color: #1e293b;
+    padding: 40px;
+    border-radius: 4px; /* Bordes rectos = mayor seriedad */
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border-top: 8px solid #b4975a; /* Franja dorada de distinción */
+    position: relative;
+}
+
+/* Integración del Logo suits.png */
+.container::before {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 60px;
+    margin: 0 auto 20px;
+    background: url('suits.png') no-repeat center;
+    background-size: contain;
 }
 
 h1 {
+    font-family: 'Cinzel', serif;
     text-align: center;
-    margin-bottom: 20px;
+    color: #0f172a;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
 }
 
 h2 {
-    margin-top: 20px;
-    font-size: 18px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #b4975a; /* Dorado */
+    border-bottom: 1px solid #e2e8f0;
+    margin: 25px 0 15px;
+    padding-bottom: 5px;
 }
 
 label {
     display: block;
-    margin-top: 10px;
-    font-weight: bold;
+    margin: 15px 0 5px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 1px;
 }
 
 input {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    padding: 12px;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 0px; /* Estilo cuadrado */
+    color: #0f172a;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #b4975a;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(180, 151, 90, 0.3);
+}
+
+.info-previa, .resultados-finales {
+    background: #f1f5f9;
+    padding: 20px;
+    margin: 20px 0;
+    border-left: 4px solid #0f172a;
 }
 
 p {
-    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 0.95rem;
 }
 
 span {
-    font-weight: bold;
-    color: #2c3e50;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* Estilo del Mensaje de Aprobación */
+#lblMensaje {
+    font-family: 'Cinzel', serif;
+    display: block;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
 }
 
 .buttons {
-    margin-top: 20px;
     display: flex;
-    justify-content: space-between;
+    gap: 15px;
+    margin-top: 30px;
 }
 
 button {
-    width: 48%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #3498db;
-    color: white;
-    font-weight: bold;
+    flex: 1;
+    padding: 15px;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     cursor: pointer;
+    transition: all 0.4s;
+    border: none;
 }
 
-button:hover {
-    background-color: #2980b9;
+#btnCalcularCredito {
+    background-color: #0f172a; /* Azul Oxford */
+    color: #ffffff;
+}
+
+#btnCalcularCredito:hover {
+    background-color: #b4975a; /* Cambia a Dorado al pasar el mouse */
+    letter-spacing: 2px;
+}
+
+#btnReiniciar {
+    background-color: transparent;
+    color: #64748b;
+    border: 1px solid #cbd5e1;
+}
+
+#btnReiniciar:hover {
+    background-color: #f1f5f9;
+    color: #0f172a;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 480px) {
+    .container {
+        padding: 25px;
+    }
+    h1 {
+        font-size: 1.4rem;
+    }
 }
