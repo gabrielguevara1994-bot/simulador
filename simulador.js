@@ -1,20 +1,17 @@
 
 
-function calcular(){
-    let ingresos=parseFloat(document.getElementById("txtIngresos").value);
-    let egresos=parseFloat(document.getElementById("txtEgresos").value);
+function calcular() {
+    let monto = parseInt(document.getElementById("txtMonto").value) || 0;
+    let plazo = parseInt(document.getElementById("txtPlazo").value) || 0;
+    let tasa = parseInt(document.getElementById("txtTasa").value) || 0;
 
-    let disponible =calcularDisponible(ingresos,egresos)
+    let interesGenerado = calcularInteresSimple(monto, tasa, plazo);
 
-    //const elemento = document.getElementById("spnDisponible");
-    //elemento.innerText=disponible;
+    let totalAPagar = calcularTotalPagar(monto, interesGenerado);
 
-     texto("spnDisponible",disponible);
-
-    let capasidadDePago=calcularCapacidadDePago(disponible);
-    //const elemento = document.getElementById("spnCapacidadPago");
-    //elemento.innerText=capasidadDePago;
-    texto("spnCapacidadPago",capasidadDePago);
+    texto("lblInteresValor", interesGenerado);
+  
+    texto("lblTotalValor", totalAPagar);
 }
 
 
