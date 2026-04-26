@@ -1,42 +1,34 @@
-function calcularDisponible(ingresos,egresos){
-let disponible=ingresos-egresos
-if (disponible<0){
-    disponible=0;
-}
-return disponible;
+function calcularDisponible(ingresos, egresos) {
+    let disp = ingresos - egresos;
+    return disp < 0 ? 0 : disp;
 }
 
-function calcularCapacidadDePago(montoDisponible){
-    let capasidadDePago=montoDisponible/2;
-    return capasidadDePago;
+function calcularCapacidadDePago(montoDisponible) {
+    return montoDisponible / 2;
 }
-
-function texto(id,variable){
-    let text1 = document.getElementById(id);
-    text1.innerText=variable.toFixed(2);
-
-}
-
 
 function calcularInteresSimple(monto, tasa, plazo) {
-   
-    let tasaDecimal = tasa / 100;
-    let interes = plazo * monto * tasaDecimal;
-    
-    return interes;
-}
-
-function calcular() {
-    
-    let monto = parseInt(document.getElementById("txtMonto").value) || 0;
-    let plazo = parseInt(document.getElementById("txtPlazo").value) || 0;
-    let tasa = parseInt(document.getElementById("txtTasa").value) || 0;
- 
-    let interesCalculado = calcularInteresSimple(monto, tasa, plazo);
-
-    texto("spnInteresPagar", interesCalculado);
+    return monto * (tasa / 100) * plazo;
 }
 
 function calcularTotalPagar(monto, interes) {
-    return monto + interes + 100; 
+    return monto + interes + 100; // +100 de SOLCA/Impuestos
+}
+
+function calcularCuotaMensual(total, plazo) {
+    return total / (plazo * 12);
+}
+
+function aprobarCredito(capacidad, cuota) {
+    return capacidad >= cuota;
+}
+
+// FUNCIÓN CORREGIDA PARA EVITAR EL ERROR DE 'NULL'
+function texto(id, variable) {
+    let elemento = document.getElementById(id);
+    if (elemento) {
+        elemento.innerText = "$" + variable.toFixed(2);
+    } else {
+        console.warn("No se encontró el elemento con ID: " + id);
+    }
 }
